@@ -18,9 +18,9 @@ Learn how to use the HTML5 Audio API to create a custom audio player with CSS an
 
 ## Screenshots
 
-![Screenshot]()
+![Screenshot](https://user-images.githubusercontent.com/57517804/115135137-91415700-a048-11eb-93b0-d7dca07b0dfd.png)
 
-[Demo]()
+[Demo](https://elastic-swartz-b9d3e8.netlify.app)
 
 ## Built With
 
