@@ -1,0 +1,261 @@
+:root {
+  --bg: #eaeaea;
+  --light: #ffffff;
+  --light-2: #fafafa;
+  --shadow: #c3c3c3;
+  --shadow-2: #d1d1d1;
+  --color: #e483e4;
+}
+
+[theme="dark"] {
+  --bg: hsl(231, 26%, 50%);
+  --light: hsl(231, 28%, 55%);
+  --light-2: hsl(231, 26%, 51%);
+  --shadow: hsl(231, 26%, 38%);
+  --shadow-2: hsl(231, 26%, 41%);
+  --color: #83e490;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--bg);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  transition: all 0.3s;
+}
+
+h1 {
+  color: var(--color);
+  font-size: 3rem;
+  transition: all 0.3s;
+}
+.music-container {
+  border-radius: 50px;
+  box-shadow: 35px 35px 70px var(--shadow), -35px -35px 70px var(--light);
+  padding: 1.25em 2em;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 6.25em 0;
+  z-index: 10;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.img-container {
+  position: relative;
+  width: 140px;
+}
+
+img {
+  border-radius: 50%;
+  display: block;
+  padding: 0.3em;
+  object-fit: cover;
+  height: 140px;
+  width: 100%;
+  background: var(--bg-light);
+  box-shadow: inset 9px 9px 18px var(--shadow),
+    inset -9px -9px 18px var(--light);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+  transition: all 0.3s;
+}
+
+.music-container.play img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.action-btn {
+  cursor: pointer;
+  border: none;
+  color: var(--color);
+  font-size: 1.25rem;
+  padding: 0.8em;
+  margin: 0 1.25em;
+  border-radius: 50%;
+  height: 3em;
+  width: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, var(--light-2), var(--shadow-2));
+  box-shadow: 9px 9px 18px var(--shadow), -9px -9px 18px var(--light);
+  transition: all 0.3s;
+}
+
+.action-btn-big {
+  font-size: 1.5rem;
+}
+
+.fa-play {
+  transform: translateX(3px);
+}
+
+.fa-backward {
+  transform: translateX(-1px);
+}
+
+.fa-forward {
+  transform: translateX(1px);
+}
+
+.music-info {
+  background: var(--bg);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 40px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: all 0.3s;
+  z-index: 0;
+  width: calc(100% - 80px);
+  padding: 1em 1em 1em 8em;
+  color: var(--color);
+  box-shadow: inset 9px 9px 18px var(--shadow),
+    inset -9px -9px 18px var(--light);
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+h4 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.progress-container {
+  border-radius: 50px;
+  background: var(--bg);
+  box-shadow: inset 1px 1px 2px var(--shadow), inset -1px -1px 2px var(--light);
+  cursor: pointer;
+  margin: 0.825em 0;
+  height: 6px;
+  width: 100%;
+}
+
+.progress {
+  background: var(--color);
+  border-radius: 50px;
+  height: 100%;
+  width: 0%;
+  transition: widtg 0.1s linear;
+}
+
+.volume-container {
+  width: 50%;
+  margin-top: 2em;
+  position: relative;
+  left: 40%;
+}
+
+.volume {
+  width: 40%;
+}
+
+.fa-volume-up {
+  color: var(--color);
+  position: absolute;
+  bottom: 28px;
+  left: 200px;
+}
+
+/* Toggle */
+
+/* The switch - the box around the slider */
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  top: 30px;
+  right: 50px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  background: linear-gradient(145deg, var(--shadow-2), var(--light-2));
+  box-shadow: 10px 10px 20px var(--shadow), -10px -10px 20px var(--light),
+    10px 10px 10px var(--shadow-2) inset, -10px -10px 10px var(--light-2) inset;
+  -webkit-transition: 0.4s;
+  transition: all 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background: linear-gradient(145deg, var(--light-2), var(--shadow-2));
+  box-shadow: 20px 20px 20px var(--shadow), -20px -20px 20px var(--light);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  transition: all 0.3s;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
